@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Building2, ExternalLink } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
@@ -6,9 +7,7 @@ export default function Footer() {
     <footer className="bg-[#191F28] text-gray-400 py-10 px-5">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center gap-2 mb-6">
-          <div className="w-7 h-7 bg-[#3182F6] rounded-lg flex items-center justify-center">
-            <span className="text-white text-xs font-bold">새빛</span>
-          </div>
+          <Image src="/logo-symbol.svg" width={28} height={28} alt="새빛케어 로고" unoptimized />
           <span className="font-bold text-white text-base">새빛케어</span>
         </div>
 
