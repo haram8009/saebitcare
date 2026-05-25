@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const areasStr = siteConfig.areas.join("·");
 
@@ -99,6 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
+      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-2P1VY2YC6J" />}
     </html>
   );
 }
