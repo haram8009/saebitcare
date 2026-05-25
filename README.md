@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.svg" alt="새빛케어 로고" height="60" />
+</p>
+
 # 새빛케어 랜딩페이지
 
 에어컨 청소 전문 서비스 새빛케어의 랜딩페이지입니다.
