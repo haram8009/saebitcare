@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export default function Navbar() {
   return (
@@ -15,11 +16,11 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <a
-            href="tel:010-0000-0000"
+            href={`tel:${siteConfig.phone}`}
             className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-[#374151]"
           >
             <Phone size={15} className="text-[#3182F6]" />
-            010-0000-0000
+            {siteConfig.phone}
           </a>
           <a
             href="#contact"

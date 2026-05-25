@@ -1,8 +1,5 @@
 import { Phone, MessageCircle, ClipboardList } from "lucide-react";
-
-// TODO: Google Form을 만든 후 아래 URL을 실제 URL로 교체하세요
-// Google Forms → 보내기 → 링크 복사
-const GOOGLE_FORM_URL = "https://forms.gle/YOUR_FORM_ID";
+import { siteConfig } from "@/config/site";
 
 export default function ContactSection() {
   return (
@@ -16,7 +13,7 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <a
-            href={GOOGLE_FORM_URL}
+            href={siteConfig.googleFormUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white rounded-2xl p-6 flex flex-col items-start gap-4 hover:bg-blue-50 transition-colors group"
@@ -32,7 +29,7 @@ export default function ContactSection() {
           </a>
 
           <a
-            href="tel:010-0000-0000"
+            href={`tel:${siteConfig.phone}`}
             className="bg-white rounded-2xl p-6 flex flex-col items-start gap-4 hover:bg-blue-50 transition-colors group"
           >
             <div className="w-11 h-11 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-colors">
@@ -40,13 +37,13 @@ export default function ContactSection() {
             </div>
             <div>
               <p className="font-bold text-[#191F28] mb-1">전화 상담</p>
-              <p className="text-sm text-[#6B7280]">010-0000-0000<br />평일 09:00 ~ 18:00</p>
+              <p className="text-sm text-[#6B7280]">{siteConfig.phone}<br />평일 {siteConfig.hours.open} ~ {siteConfig.hours.close}</p>
             </div>
             <span className="text-[#3182F6] font-semibold text-sm mt-auto">전화하기 →</span>
           </a>
 
           <a
-            href="https://open.kakao.com/YOUR_KAKAO_LINK"
+            href={siteConfig.kakaoUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white rounded-2xl p-6 flex flex-col items-start gap-4 hover:bg-blue-50 transition-colors group"

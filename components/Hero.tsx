@@ -1,4 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export default function Hero() {
   return (
@@ -28,7 +29,7 @@ export default function Hero() {
               온라인 무료 견적 신청
             </a>
             <a
-              href="tel:010-0000-0000"
+              href={`tel:${siteConfig.phone}`}
               className="flex items-center justify-center gap-2 bg-gray-100 text-[#191F28] font-semibold text-base px-7 py-4 rounded-2xl hover:bg-gray-200 transition-colors"
             >
               <Phone size={18} />

@@ -1,4 +1,5 @@
 import { Building2, ExternalLink } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
@@ -12,9 +13,9 @@ export default function Footer() {
         </div>
 
         <div className="text-sm leading-relaxed space-y-1 mb-6">
-          <p>상호명: 새빛케어 &nbsp;|&nbsp; 대표: 홍길동</p>
-          <p>연락처: 010-0000-0000 &nbsp;|&nbsp; 이메일: info@saebitcare.kr</p>
-          <p>운영시간: 평일 09:00 ~ 18:00 (주말·공휴일 휴무)</p>
+          <p>상호명: {siteConfig.name} &nbsp;|&nbsp; 대표: {siteConfig.representative}</p>
+          <p>연락처: {siteConfig.phone} &nbsp;|&nbsp; 이메일: {siteConfig.email}</p>
+          <p>운영시간: 평일 {siteConfig.hours.open} ~ {siteConfig.hours.close} (주말·공휴일 휴무)</p>
         </div>
 
         {/* 사업자등록증 뱃지 */}
@@ -23,7 +24,7 @@ export default function Footer() {
             <Building2 size={15} className="text-[#3182F6]" />
             <div>
               <p className="text-xs text-gray-500 leading-none mb-0.5">사업자등록번호</p>
-              <p className="text-sm font-medium text-white leading-none">000-00-00000</p>
+              <p className="text-sm font-medium text-white leading-none">{siteConfig.businessRegNo}</p>
             </div>
           </div>
           <a

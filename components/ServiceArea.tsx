@@ -1,8 +1,4 @@
-// TODO: 아래 areas 배열을 실제 서비스 지역으로 수정하세요
-const areas = [
-  "강남구", "서초구", "송파구", "강동구",
-  "성동구", "광진구", "마포구", "용산구",
-];
+import { siteConfig } from "@/config/site";
 
 export default function ServiceArea() {
   return (
@@ -17,7 +13,7 @@ export default function ServiceArea() {
         </div>
 
         <div className="flex flex-wrap gap-3 mb-8">
-          {areas.map((area) => (
+          {siteConfig.areas.map((area) => (
             <span
               key={area}
               className="bg-white border border-gray-200 text-[#374151] font-medium text-sm px-4 py-2 rounded-xl shadow-sm"
@@ -29,7 +25,7 @@ export default function ServiceArea() {
 
         <p className="text-sm text-[#6B7280]">
           위 지역 외에도 인근 지역은 문의 시 안내해드립니다.{" "}
-          <a href="tel:010-0000-0000" className="text-[#3182F6] font-semibold hover:underline">
+          <a href={`tel:${siteConfig.phone}`} className="text-[#3182F6] font-semibold hover:underline">
             전화 문의 →
           </a>
         </p>
