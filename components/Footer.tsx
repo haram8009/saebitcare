@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
           </div>
           <a
-            href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=0000000000"
+            href={`https://www.ftc.go.kr/bizCommPop.do?wrkr_no=${siteConfig.businessRegNo.replace(/-/g, "")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-300 transition-colors"
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 pt-6">
-          <p className="text-xs text-gray-600">© 2024 새빛케어. All rights reserved.</p>
+          <p className="text-xs text-gray-600">© {new Date().getFullYear()} 새빛케어. All rights reserved.</p>
         </div>
       </div>
     </footer>

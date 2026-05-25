@@ -1,5 +1,3 @@
-import { Wind } from "lucide-react";
-
 const services = [
   {
     name: "벽걸이형",
