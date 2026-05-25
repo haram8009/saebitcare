@@ -77,6 +77,18 @@ public/gallery/
 
 사진이 없으면 "사진 준비 중" placeholder가 자동으로 표시됩니다.
 
+## 명함
+
+`public/business-card.html` 을 브라우저에서 열어 앞면/뒷면을 확인하고 인쇄할 수 있습니다.
+
+```
+public/
+├── business-card.html   # 명함 디자인 (앞면 + 뒷면, 인쇄용)
+└── qr-business-card.png # 명함 뒷면용 QR 코드 이미지
+```
+
+인쇄 규격: 90 × 50mm (표준 명함), 3mm 재단 여백 권장.
+
 ## 빌드 및 배포
 
 ```bash

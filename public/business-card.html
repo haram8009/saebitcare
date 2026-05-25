@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>새빛케어 명함</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #E5E7EB;
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 48px;
+    padding: 48px 24px;
+  }
+
+  .label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6B7280;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  /* 명함 크기: 90mm × 50mm → 340px × 189px (display scale) */
+  .card {
+    width: 340px;
+    height: 189px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+    position: relative;
+  }
+
+  /* ── 앞면 ─────────────────────────────── */
+  .front {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 28px 22px;
+  }
+
+  .front-accent {
+    position: absolute;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #3182F6 0%, #0EA5E9 100%);
+    border-radius: 0 10px 0 100%;
+    opacity: 0.08;
+  }
+
+  .front-bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1D4ED8 0%, #0EA5E9 100%);
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .brand-text h1 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1E3A5F;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .brand-text p {
+    font-size: 9px;
+    font-weight: 400;
+    color: #64748B;
+    letter-spacing: 0.5px;
+    margin-top: 1px;
+  }
+
+  .person {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2px;
+  }
+
+  .person-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #191F28;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .person-title {
+    font-size: 10px;
+    font-weight: 500;
+    color: #3182F6;
+    margin-top: 5px;
+    letter-spacing: 0.2px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    color: #374151;
+    font-weight: 400;
+  }
+
+  .contact-icon {
+    width: 12px;
+    height: 12px;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  /* ── 뒷면 ─────────────────────────────── */
+  .back {
+    background: linear-gradient(135deg, #1D4ED8 0%, #0EA5E9 100%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px 22px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .back::before {
+    content: '';
+    position: absolute;
+    top: -50px; left: -50px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .back-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1;
+  }
+
+  .back-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .back-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .back-brand-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+  }
+
+  .back-tagline {
+    font-size: 9px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+  }
+
+  .back-divider {
+    width: 24px;
+    height: 1.5px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 1px;
+  }
+
+  .back-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 160px;
+  }
+
+  .service-tag {
+    font-size: 7.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.15);
+    padding: 2.5px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  .back-qr {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .back-qr img {
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    display: block;
+  }
+
+  .back-qr-label {
+    font-size: 7.5px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── 인쇄 안내 ──────────────────────────── */
+  .print-note {
+    font-size: 11px;
+    color: #9CA3AF;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  @media print {
+    body { background: white; gap: 20mm; }
+    .label, .print-note { display: none; }
+    .card { box-shadow: none; border: 0.5px solid #E5E7EB; }
+  }
+</style>
+</head>
+<body>
+
+<div>
+  <p class="label">앞면 (Front)</p>
+  <div class="card front">
+    <div class="front-accent"></div>
+    <div class="front-bottom-bar"></div>
+
+    <!-- 브랜드 -->
+    <div class="brand-row">
+      <svg class="brand-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1D4ED8"/>
+            <stop offset="100%" stop-color="#0EA5E9"/>
+          </linearGradient>
+        </defs>
+        <rect width="56" height="56" rx="14" fill="url(#g1)"/>
+        <path d="M28,7 C29,20 37,27 49,28 C37,29 29,36 28,49 C27,36 19,29 7,28 C19,27 27,20 28,7 Z" fill="white"/>
+        <circle cx="43" cy="14" r="2.5" fill="white" opacity="0.7"/>
+        <circle cx="45" cy="20" r="1.2" fill="white" opacity="0.4"/>
+      </svg>
+      <div class="brand-text">
+        <h1>새빛케어</h1>
+        <p>에어컨 청소 전문</p>
+      </div>
+    </div>
+
+    <!-- 이름/직함 -->
+    <div class="person">
+      <div class="person-name">홍길동</div>
+      <div class="person-title">대표 원장</div>
+    </div>
+
+    <!-- 연락처 -->
+    <div class="contact-row">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="#3182F6" stroke-width="2.5">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        010-0000-0000
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="#3182F6" stroke-width="2.5">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        info@saebitcare.com
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="#3182F6" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+        </svg>
+        www.saebitcare.com
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p class="label">뒷면 (Back)</p>
+  <div class="card back">
+    <div class="back-left">
+      <div class="back-logo">
+        <svg class="back-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="14" fill="rgba(255,255,255,0.15)"/>
+          <path d="M28,7 C29,20 37,27 49,28 C37,29 29,36 28,49 C27,36 19,29 7,28 C19,27 27,20 28,7 Z" fill="white"/>
+          <circle cx="43" cy="14" r="2.5" fill="white" opacity="0.7"/>
+          <circle cx="45" cy="20" r="1.2" fill="white" opacity="0.4"/>
+        </svg>
+        <div class="back-brand-name">새빛케어</div>
+      </div>
+      <div class="back-divider"></div>
+      <div class="back-tagline">깨끗한 공기, 건강한 일상</div>
+      <div class="back-services">
+        <span class="service-tag">에어컨 청소</span>
+        <span class="service-tag">항균 코팅</span>
+        <span class="service-tag">필터 교체</span>
+      </div>
+    </div>
+    <div class="back-qr">
+      <img src="/qr-business-card.png" alt="QR 코드">
+      <span class="back-qr-label">스캔하여 문의</span>
+    </div>
+  </div>
+</div>
+
+<p class="print-note">
+  인쇄 규격: 90 × 50 mm (표준 명함) · 3mm 여백 권장<br>
+  텍스트 수정: 홍길동 → 실제 이름, 010-0000-0000 → 실제 번호
+</p>
+
+</body>
+</html>
