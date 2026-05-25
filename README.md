@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 새빛케어 랜딩페이지
 
-## Getting Started
+에어컨 청소 전문 서비스 새빛케어의 랜딩페이지입니다.
 
-First, run the development server:
+## 기술 스택
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Icons**: lucide-react
+- **Font**: Pretendard (CDN)
+
+## 시작하기
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) 에서 확인할 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 비즈니스 설정 변경
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+전화번호, 이메일, 사업자번호, 외부 링크 등 모든 비즈니스 정보는 **한 파일**에서 관리합니다.
 
-## Learn More
+```
+config/site.ts
+```
 
-To learn more about Next.js, take a look at the following resources:
+이 파일만 수정하면 사이트 전체에 반영됩니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 프로젝트 구조
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+├── layout.tsx         # 루트 레이아웃, 메타데이터, Schema.org
+├── page.tsx           # 메인 페이지
+├── not-found.tsx      # 404 페이지
+├── robots.ts          # robots.txt 생성
+└── sitemap.ts         # sitemap.xml 생성
 
-## Deploy on Vercel
+components/
+├── Navbar.tsx
+├── Hero.tsx
+├── Services.tsx
+├── Process.tsx
+├── WhyUs.tsx
+├── Testimonials.tsx
+├── ServiceArea.tsx
+├── FAQ.tsx
+├── ContactSection.tsx
+└── Footer.tsx
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+config/
+└── site.ts            # 비즈니스 설정 단일 출처
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 빌드 및 배포
+
+```bash
+npm run build
+npm run start
+```
+
+Vercel 배포 시 main 브랜치 push만으로 자동 배포됩니다.
