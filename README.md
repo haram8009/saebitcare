@@ -44,16 +44,34 @@ components/
 ├── Hero.tsx
 ├── Services.tsx
 ├── Process.tsx
+├── Gallery.tsx        # 청소 전후 비교 갤러리 (토글/좌우 방식)
 ├── WhyUs.tsx
 ├── Testimonials.tsx
 ├── ServiceArea.tsx
 ├── FAQ.tsx
 ├── ContactSection.tsx
-└── Footer.tsx
+├── Footer.tsx
+└── MobileCTA.tsx      # 모바일 전용 고정 하단 CTA 바
 
 config/
 └── site.ts            # 비즈니스 설정 단일 출처
 ```
+
+## 갤러리 사진 추가
+
+`public/gallery/` 폴더에 아래 파일명으로 사진을 넣으면 자동 반영됩니다.
+
+```
+public/gallery/
+├── wall-before.jpg     # 벽걸이형 청소 전
+├── wall-after.jpg      # 벽걸이형 청소 후
+├── stand-before.jpg    # 스탠드형 청소 전
+├── stand-after.jpg     # 스탠드형 청소 후
+├── ceiling-before.jpg  # 천장형 청소 전
+└── ceiling-after.jpg   # 천장형 청소 후
+```
+
+사진이 없으면 "사진 준비 중" placeholder가 자동으로 표시됩니다.
 
 ## 빌드 및 배포
 
