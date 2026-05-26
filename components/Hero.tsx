@@ -37,7 +37,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex items-center gap-8">
+          {/* <div className="flex items-center gap-8"> 
             <div>
               <p className="text-2xl font-bold text-[#191F28]">1,000건+</p>
               <p className="text-sm text-[#6B7280] mt-0.5">누적 청소 건수</p>
@@ -52,7 +52,7 @@ export default function Hero() {
               <p className="text-2xl font-bold text-[#191F28]">10년+</p>
               <p className="text-sm text-[#6B7280] mt-0.5">청소 전문 경력</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

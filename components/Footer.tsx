@@ -13,6 +13,7 @@ export default function Footer() {
 
         <div className="text-sm leading-relaxed space-y-1 mb-6">
           <p>상호명: {siteConfig.name} &nbsp;|&nbsp; 대표: {siteConfig.representative}</p>
+          <p>사업장: {siteConfig.address}</p>
           <p>연락처: {siteConfig.phone} &nbsp;|&nbsp; 이메일: {siteConfig.email}</p>
           <p>운영시간: 평일 {siteConfig.hours.open} ~ {siteConfig.hours.close} (주말·공휴일 휴무)</p>
         </div>
@@ -26,7 +27,7 @@ export default function Footer() {
               <p className="text-sm font-medium text-white leading-none">{siteConfig.businessRegNo}</p>
             </div>
           </div>
-          <a
+          {/* <a
             href={`https://www.ftc.go.kr/bizCommPop.do?wrkr_no=${siteConfig.businessRegNo.replace(/-/g, "")}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -34,7 +35,7 @@ export default function Footer() {
           >
             <ExternalLink size={12} />
             사업자 정보 공정위 확인
-          </a>
+          </a> */}
         </div>
 
         <div className="border-t border-gray-700 pt-6">

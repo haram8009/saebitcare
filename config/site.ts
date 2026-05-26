@@ -4,25 +4,26 @@
 export const siteConfig = {
   name: "새빛케어",
   url: "https://saebitcare.com",
-  phone: "010-0000-0000",
-  email: "info@saebitcare.kr",
-  representative: "홍길동",
-  businessRegNo: "000-00-00000",
+  phone: "010-7554-7114",
+  email: "contact@saebitcare.com",
+  representative: "김효경",
+  businessRegNo: "466-29-01893",
+  address: "경기도 고양시 덕양구 내유길 153 (내유동)",
 
   // 서비스 지역 (실제 지역으로 교체하세요)
-  areas: ["강남구", "서초구", "송파구", "강동구", "성동구", "광진구", "마포구", "용산구"],
+  areas: ["서울", "경기", "은평", "고양", "덕양", "일산", "파주"],
 
   // 영업시간
-  hours: { open: "09:00", close: "18:00" },
+  hours: { open: "09:00", close: "24:00" },
 
   // 외부 링크 (실제 URL로 교체하세요)
-  googleFormUrl: "https://forms.gle/YOUR_FORM_ID",
-  kakaoUrl: "https://open.kakao.com/YOUR_KAKAO_LINK",
+  googleFormUrl: "https://forms.gle/gjMqgsWXMEnHGaJt9",
+  kakaoUrl: "https://open.kakao.com/me/saebitcare",
 
   // 서비스 가격 (Schema.org & Services 컴포넌트에서 참조)
   services: [
-    { name: "벽걸이형", koreanName: "벽걸이형 에어컨 청소", price: 80000, duration: "약 1시간" },
-    { name: "스탠드형", koreanName: "스탠드형 에어컨 청소", price: 120000, duration: "약 1.5시간" },
-    { name: "천장형", koreanName: "천장형 에어컨 청소", price: 150000, duration: "약 2시간" },
+    { name: "벽걸이형", koreanName: "벽걸이형 에어컨 청소", price: 60000, duration: "약 1.5시간" },
+    { name: "스탠드형", koreanName: "스탠드형 에어컨 청소", price: 120000, duration: "약 3시간" },
+    { name: "천장형", koreanName: "천장형 에어컨 청소", price: 100000, duration: "약 2시간" },
   ],
 } as const;
