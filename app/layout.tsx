@@ -4,22 +4,24 @@ import { siteConfig } from "@/config/site";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const areasStr = siteConfig.areas.join("·");
+const wallPrice = (siteConfig.services[0].price / 10000).toFixed(0);
+const standPrice = (siteConfig.services[1].price / 10000).toFixed(0);
+const shortDesc = `${areasStr} 에어컨 분해 청소. 벽걸이 ${wallPrice}만원~. ${siteConfig.warrantyDays}일 AS 보증. ${siteConfig.features[1]}.`;
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-  description: `${areasStr} 에어컨 분해 청소 전문업체 ${siteConfig.name}. 벽걸이 ${(siteConfig.services[0].price / 10000).toFixed(0)}만원~, 스탠드 ${(siteConfig.services[1].price / 10000).toFixed(0)}만원~. 친환경 세정제, 14일 AS 보증, 당일 예약 가능. 사업자등록 업체.`,
+  description: `${areasStr} 에어컨 분해 청소 전문업체 ${siteConfig.name}. 벽걸이 ${wallPrice}만원~, 스탠드 ${standPrice}만원~. ${siteConfig.features.join(", ")}. ${siteConfig.warrantyDays}일 AS 보증.`,
   keywords: [
-    "에어컨청소", "에어컨 분해청소", "에어컨 곰팡이",
+    ...siteConfig.seoKeywords,
     ...siteConfig.areas.map((a) => `${a} 에어컨청소`),
-    "벽걸이 에어컨청소", "스탠드 에어컨청소", "천장형 에어컨청소",
-    "에어컨 냄새제거", siteConfig.name,
+    siteConfig.name,
   ],
   metadataBase: new URL(siteConfig.url),
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-    description: `${areasStr} 에어컨 분해 청소. 벽걸이 ${(siteConfig.services[0].price / 10000).toFixed(0)}만원~. 14일 AS 보증. 당일 예약 가능.`,
+    description: shortDesc,
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "ko_KR",
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-    description: `${areasStr} 에어컨 분해 청소. 벽걸이 ${(siteConfig.services[0].price / 10000).toFixed(0)}만원~. 14일 AS 보증. 당일 예약 가능.`,
+    description: shortDesc,
     images: ["/opengraph-image"],
   },
 };
@@ -95,7 +97,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
-      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-2P1VY2YC6J" />}
+      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={siteConfig.gaId} />}
     </html>
   );
 }

@@ -16,7 +16,16 @@ export const siteConfig = {
   // 영업시간
   hours: { open: "09:00", close: "24:00" },
 
-  // 외부 링크 (실제 URL로 교체하세요)
+  warrantyDays: 14,
+  gaId: "G-2P1VY2YC6J",
+  features: ["친환경 세정제", "당일 예약 가능", "사업자등록 업체"],
+  seoKeywords: [
+    "에어컨청소", "에어컨 분해청소", "에어컨 곰팡이",
+    "벽걸이 에어컨청소", "스탠드 에어컨청소", "천장형 에어컨청소",
+    "에어컨 냄새제거",
+  ],
+
+  // 외부 링크
   googleFormUrl: "https://forms.gle/gjMqgsWXMEnHGaJt9",
   kakaoUrl: "https://open.kakao.com/me/saebitcare",
 
