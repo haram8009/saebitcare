@@ -34,7 +34,7 @@ export default function Process() {
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-6 left-full w-full h-px bg-gray-200 z-0" style={{ width: "calc(100% - 48px)", left: "calc(100% - 12px)" }} />
+                <div className="hidden lg:block absolute top-6 h-px bg-gray-200 z-0" style={{ left: "3rem", width: "calc(100% - 1.5rem)" }} />
               )}
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-5">
