@@ -21,9 +21,9 @@ export default function Home() {
         <div id="hero-sentinel" />
         <Services />
         <Process />
-        <Gallery />
+        {/* <Gallery /> */}
         <WhyUs />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <ServiceArea />
         <FAQ />
         <ContactSection />
