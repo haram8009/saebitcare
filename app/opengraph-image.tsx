@@ -124,7 +124,7 @@ export default function Image() {
               marginTop: 8,
             }}
           >
-            {siteConfig.services.map((s) => (
+            {siteConfig.services.filter((s) => s.price !== null).map((s) => (
               <div
                 key={s.name}
                 style={{
@@ -140,7 +140,7 @@ export default function Image() {
               >
                 <span style={{ fontSize: 15, color: "#6B7280" }}>{s.name}</span>
                 <span style={{ fontSize: 20, fontWeight: 700, color: "#1E3A5F" }}>
-                  {s.price.toLocaleString()}원~
+                  {s.price!.toLocaleString()}원~
                 </span>
               </div>
             ))}

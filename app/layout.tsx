@@ -69,12 +69,14 @@ const schemaOrg = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "에어컨 청소 서비스",
-    itemListElement: siteConfig.services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.koreanName },
-      price: String(s.price),
-      priceCurrency: "KRW",
-    })),
+    itemListElement: siteConfig.services
+      .filter((s) => s.price !== null)
+      .map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.koreanName },
+        price: String(s.price),
+        priceCurrency: "KRW",
+      })),
   },
 };
 

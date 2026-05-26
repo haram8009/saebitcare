@@ -29,10 +29,39 @@ export const siteConfig = {
   googleFormUrl: "https://forms.gle/gjMqgsWXMEnHGaJt9",
   kakaoUrl: "https://open.kakao.com/me/saebitcare",
 
-  // 서비스 가격 (Schema.org & Services 컴포넌트에서 참조)
+  // 서비스 목록 (Services 컴포넌트 & Schema.org에서 참조 / price: null이면 별도 견적)
   services: [
-    { name: "벽걸이형", koreanName: "벽걸이형 에어컨 청소", price: 60000, duration: "약 1.5시간" },
-    { name: "스탠드형", koreanName: "스탠드형 에어컨 청소", price: 120000, duration: "약 3시간" },
-    { name: "천장형", koreanName: "천장형 에어컨 청소", price: 100000, duration: "약 2시간" },
+    {
+      name: "벽걸이형",
+      koreanName: "벽걸이형 에어컨 청소",
+      description: "가정에서 가장 많이 사용하는 타입. 팬과 열교환기를 완전 분해 후 세척합니다.",
+      icon: "🌀",
+      price: 60000,
+      duration: "약 1.5시간",
+    },
+    {
+      name: "스탠드형",
+      koreanName: "스탠드형 에어컨 청소",
+      description: "대용량 에어컨으로 내부 구조가 복잡합니다. 꼼꼼한 분해 세척으로 성능을 회복합니다.",
+      icon: "❄️",
+      price: 120000,
+      duration: "약 3시간",
+    },
+    {
+      name: "천장형",
+      koreanName: "천장형 에어컨 청소",
+      description: "사무실·매장에 설치된 4방향 카세트 타입. 전문 장비로 안전하게 청소합니다.",
+      icon: "🏢",
+      price: 100000,
+      duration: "약 2시간",
+    },
+    {
+      name: "시스템에어컨",
+      koreanName: "시스템에어컨 청소",
+      description: "실내기 여러 대를 하나의 실외기로 운용하는 시스템. 견적 후 진행합니다.",
+      icon: "⚙️",
+      price: null,
+      duration: null,
+    },
   ],
 } as const;
