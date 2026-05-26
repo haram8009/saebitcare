@@ -24,20 +24,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "ko_KR",
     type: "website",
-    images: [
-      {
-        url: `${siteConfig.url}/opengraph-image`,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-      },
-    ],
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
     description: `${areasStr} 에어컨 분해 청소. 벽걸이 80,000원~. 14일 AS 보증. 당일 예약 가능.`,
-    images: [`${siteConfig.url}/opengraph-image`],
+    images: ["/opengraph-image"],
   },
 };
 

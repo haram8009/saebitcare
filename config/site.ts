@@ -3,7 +3,7 @@
 
 export const siteConfig = {
   name: "새빛케어",
-  url: "https://saebitcare.kr",
+  url: "https://saebitcare.com",
   phone: "010-0000-0000",
   email: "info@saebitcare.kr",
   representative: "홍길동",
