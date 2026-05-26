@@ -16,7 +16,7 @@
   --color-gray-500: #6B7280;
   --color-gray-700: #374151;
   --color-gray-900: #111827;
-  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: var(--font-pretendard), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 body {
