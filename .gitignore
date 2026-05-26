@@ -22,6 +22,7 @@
 
 # misc
 .DS_Store
+app/favicon_io/
 *.pem
 .idea
 
