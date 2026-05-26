@@ -7,7 +7,7 @@ const areasStr = siteConfig.areas.join("·");
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-  description: `${areasStr} 에어컨 분해 청소 전문업체 ${siteConfig.name}. 벽걸이 80,000원~, 스탠드 120,000원~. 친환경 세정제, 14일 AS 보증, 당일 예약 가능. 사업자등록 업체.`,
+  description: `${areasStr} 에어컨 분해 청소 전문업체 ${siteConfig.name}. 벽걸이 ${(siteConfig.services[0].price / 10000).toFixed(0)}만원~, 스탠드 ${(siteConfig.services[1].price / 10000).toFixed(0)}만원~. 친환경 세정제, 14일 AS 보증, 당일 예약 가능. 사업자등록 업체.`,
   keywords: [
     "에어컨청소", "에어컨 분해청소", "에어컨 곰팡이",
     ...siteConfig.areas.map((a) => `${a} 에어컨청소`),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-    description: `${areasStr} 에어컨 분해 청소. 벽걸이 80,000원~. 14일 AS 보증. 당일 예약 가능.`,
+    description: `${areasStr} 에어컨 분해 청소. 벽걸이 ${(siteConfig.services[0].price / 10000).toFixed(0)}만원~. 14일 AS 보증. 당일 예약 가능.`,
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "ko_KR",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${areasStr} 에어컨 청소 전문`,
-    description: `${areasStr} 에어컨 분해 청소. 벽걸이 80,000원~. 14일 AS 보증. 당일 예약 가능.`,
+    description: `${areasStr} 에어컨 분해 청소. 벽걸이 ${(siteConfig.services[0].price / 10000).toFixed(0)}만원~. 14일 AS 보증. 당일 예약 가능.`,
     images: ["/opengraph-image"],
   },
 };
@@ -51,11 +51,13 @@ const schemaOrg = {
   image: `${siteConfig.url}/logo-symbol.svg`,
   address: {
     "@type": "PostalAddress",
-    addressRegion: "서울특별시",
+    streetAddress: siteConfig.address,
+    addressRegion: "경기도",
+    addressLocality: "고양시 덕양구",
     addressCountry: "KR",
   },
   areaServed: siteConfig.areas.map((area) => ({ "@type": "Place", name: area })),
-  priceRange: "₩80,000~",
+  priceRange: `₩${siteConfig.services[0].price.toLocaleString()}~`,
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
